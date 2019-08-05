@@ -1,0 +1,63 @@
+# Page settings
+
+baseurl = "https://example.org/"
+languageCode = "en-us"
+title = "Hugo Theme Doors"
+copyright = "© Hugo Theme Door"
+googleAnalytics = "UA-xxxxxxxx-x"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+theme = "hugo-theme-doors"
+
+disableRSS = true
+disableSitemap = true
+disable404 = true
+
+# Site information
+[params]
+description = ""
+ogimage = "images/work1.jpg"
+
+# Project section
+[params.projects]
+
+[[params.projects.list]]
+title = "Name of the work 1"
+url = "#"
+description = "Describe your work summary"
+image = "images/work1.jpg"
+w = "780"
+h = "518"
+
+# Subproject section
+[params.subprojects]
+
+[[params.subprojects.list]]
+title = "The work 2"
+url = "#"
+description = "Lorem ipsum dolor sit amet"
+image = "images/work2.jpg"
+w = "780"
+h = "522"
+
+[[params.subprojects.list]]
+title = "The work 3"
+url = "#"
+description = "Consectetur adipiscing elit"
+image = "images/work3.jpg"
+w = "780"
+h = "518"
+
+[[params.subprojects.list]]
+title = "The work 4"
+url = "#"
+description = "Sed do eiusmod tempor incididunt"
+image = "images/work4.jpg"
+w = "780"
+h = "518"
+
+# Contact section
+[params.contact]
+twitter = "#"
+linkedin = "#"
+github = ""
+email = "#"

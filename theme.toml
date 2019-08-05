@@ -1,0 +1,12 @@
+name = "Doors"
+license = "MIT"
+licenselink = "https://github.com/zzzmisa/hugo-theme-doors/blob/master/LICENSE"
+description = "Single page theme for links to your works"
+homepage = "https://github.com/zzzmisa/hugo-theme-doors"
+tags = ["single page", "onepage", "one page", "amp", "mobile", "google-analytics", "projects", "portfolio"]
+features = []
+min_version = "0.53"
+
+[author]
+  name = "zzzmisa"
+  homepage = "https://zzzmisa.com/"
