@@ -57,6 +57,7 @@ h = "518"
 
 # Contact section
 [params.contact]
+description = "I would like to hear from you. Please contact me via email or social media."
 twitter = "#"
 facebook = ""
 linkedin = "#"
