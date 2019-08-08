@@ -87,10 +87,10 @@
       <p class="m3">
         <ul class="ampstart-related-section-items list-reset flex flex-wrap m0">
           {{ range .Site.Params.subprojects.list }}
-          <li class="col-12 sm-col-4 md-col-4 lg-col-4 pr2 py2">
+          <li class="col-12 sm-col-4 md-col-4 lg-col-4 p1">
             <a href="{{ .url }}" target="_blank">
               <figure class="ampstart-image-with-caption m0 relative mb4">
-                <amp-img src="{{ .image }}" alt="Beautiful Image of a rectangle" width="780" height="524" layout="responsive" class=""></amp-img>
+                <amp-img width="{{ .w }}" height="{{ .h }}" layout="responsive" src="{{ .image }}"></amp-img>
                 <figcaption class="h5 mt1 px3">
                   <h3 class="caps bold">{{ .title }}</h3>
                   {{ .description }}
