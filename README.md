@@ -43,3 +43,6 @@ The example of how to use this theme is provided in the `exampleSite` folder. At
     $ hugo
     ```
     Find result files in the `public` folder in the root of your project folder.
+    
+## Contributing
+Bug reports and pull requests are welcome! By submitting a pull request, you agree to license your contribution under the MIT license.
