@@ -46,3 +46,6 @@ The example of how to use this theme is provided in the `exampleSite` folder. At
     
 ## Contributing
 Bug reports and pull requests are welcome! By submitting a pull request, you agree to license your contribution under the MIT license.
+
+## Supported Hugo versions
+Hugo Theme Doors is tested against Hugo `v0.53` to `v0.57`.
