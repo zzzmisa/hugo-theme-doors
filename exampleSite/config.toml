@@ -3,7 +3,7 @@
 baseurl = "https://example.org/"
 languageCode = "en-us"
 title = "Hugo Theme Doors"
-copyright = "© Hugo Theme Door"
+copyright = "© Hugo Theme Doors"
 googleAnalytics = "UA-xxxxxxxx-x"
 disableKinds = ["taxonomy", "taxonomyTerm"]
 theme = "hugo-theme-doors"
