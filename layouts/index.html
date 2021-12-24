@@ -83,10 +83,12 @@
         <article class="ampstart-article-summary m0 relative">
           <a href="{{ .url }}" target="_blank">
             <amp-img width="{{ .w }}" height="{{ .h }}" layout="responsive" src="{{ .image }}"></amp-img>
-            <header class="absolute bottom-0 right-0 left-0 center m3 p3">
-              <h3 class="caps bold">{{ .title }}</h3>
-              <h1 class="h2 my1">{{ .description }}</h1>
-            </header>
+            {{ if or .title .description }}
+              <header class="absolute bottom-0 right-0 left-0 center m3 p3">
+                <h3 class="caps bold">{{ .title }}</h3>
+                <h1 class="h2 my1">{{ .description }}</h1>
+              </header>
+            {{ end }}
           </a>
         </article>
       </p>
