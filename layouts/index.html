@@ -76,7 +76,7 @@
     </amp-analytics>
     <main id="content" role="main">
       <h2 class="m3 center h4 italic">{{ .Site.Title }}</h2>
-      <p class="h3 bold">{{ .Site.Params.description }}</p>
+      <p class="h3 m4">{{ .Site.Params.description | safeHTML }}</p>
 
       {{ range .Site.Params.projects.list }}
       <p class="m3">
@@ -120,7 +120,7 @@
       {{ with .Site.Params.contact }}
         {{ with .avatar }}<img class="circle mb2" src="{{ . }}" width="96" height="96" class="block mx-auto" />{{ end }}
         {{ with .name }}<h3 class="center h3 bold mb2">{{ . }}</h3>{{ end }}
-        {{ with .description }}<p class="max-width-1 mb2">{{ . }}</p>{{ end }}
+        {{ with .description }}<p class="max-width-1 mb2">{{ . | safeHTML }}</p>{{ end }}
 {{ `<!--
   Icons are from Simple Icons v5.13.0 except email icon 
   (The email icon is from The Scenic).
