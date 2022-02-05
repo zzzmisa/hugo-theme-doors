@@ -3,13 +3,7 @@
 Single page theme for links to your works.  
 See a real usage here: https://zzzmisa.com/
 
-## PC view
-
 ![Doors screenshot](https://github.com/zzzmisa/hugo-theme-doors/blob/master/images/screenshot.png?raw=true)
-
-## Mobile view
-
-<img src="https://github.com/zzzmisa/hugo-theme-doors/blob/master/images/screenshot_mb.png?raw=true" height="600">
 
 ## Features
 
@@ -56,7 +50,7 @@ Bug reports and pull requests are welcome! By submitting a pull request, you agr
 
 ## Supported Hugo versions
 
-Hugo Theme Doors is tested against Hugo `v0.53` to `v0.88.1`.
+Hugo Theme Doors is tested against Hugo `v0.53` to `v0.92.0`.
 
 ## Attribution notices
 
