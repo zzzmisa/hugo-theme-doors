@@ -10,7 +10,7 @@ See a real usage here: https://zzzmisa.com/
 - Links to your works
 - Responsive
 - SNS button
-- Google Analytics
+- Google Tag Manager
 - Accelerated Mobile Pages (AMP) supported
 
 ## Getting started
@@ -50,7 +50,7 @@ Bug reports and pull requests are welcome! By submitting a pull request, you agr
 
 ## Supported Hugo versions
 
-Hugo Theme Doors is tested against Hugo `v0.53` to `v0.92.0`.
+Hugo Theme Doors is tested against Hugo `v0.53` to `v0.120.4`.
 
 ## Attribution notices
 

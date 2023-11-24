@@ -4,7 +4,6 @@ baseurl = "https://example.org/"
 languageCode = "en-us"
 title = "Hugo Theme Doors"
 copyright = "© Hugo Theme Doors"
-googleAnalytics = "UA-xxxxxxxx-x"
 disableKinds = ["taxonomy", "taxonomyTerm"]
 theme = "hugo-theme-doors"
 
@@ -14,6 +13,7 @@ disable404 = true
 
 # Site information
 [params]
+googleTagManager = "GTM-xxxxxxxx"
 description = ""
 ogimage = "images/work1.jpg"
 
