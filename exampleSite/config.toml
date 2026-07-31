@@ -4,12 +4,8 @@ baseurl = "https://example.org/"
 locale = "en-US"
 title = "Hugo Theme Doors"
 copyright = "© Hugo Theme Doors"
-disableKinds = ["taxonomy", "taxonomyTerm"]
+disableKinds = ["taxonomy", "term", "rss", "sitemap", "404"]
 theme = "hugo-theme-doors"
-
-disableRSS = true
-disableSitemap = true
-disable404 = true
 
 # Site information
 [params]
