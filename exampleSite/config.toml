@@ -1,7 +1,7 @@
 # Page settings
 
 baseurl = "https://example.org/"
-languageCode = "en-us"
+locale = "en-US"
 title = "Hugo Theme Doors"
 copyright = "© Hugo Theme Doors"
 disableKinds = ["taxonomy", "taxonomyTerm"]
@@ -16,6 +16,7 @@ disable404 = true
 googleTagManager = "GTM-xxxxxxxx"
 description = ""
 ogimage = "images/work1.jpg"
+twitterSite = "@username"
 
 # Project section
 [params.projects]
