@@ -6,8 +6,8 @@ description = "Single page theme for links to your works"
 homepage = "https://github.com/zzzmisa/hugo-theme-doors"
 demosite = "https://zzzmisa.com"
 
-tags = ["amp", "gallery", "google-analytics", "mobile", "onepage", "one page", "portfolio", "projects", "responsive", "single page" ]
-features = ["amp", "google-analytics", "responsive"]
+tags = ["gallery", "google-tag-manager", "mobile", "multilingual", "onepage", "one page", "portfolio", "projects", "responsive", "single page"]
+features = ["google-tag-manager", "multilingual", "responsive"]
 
 [author]
   name = "zzzmisa"

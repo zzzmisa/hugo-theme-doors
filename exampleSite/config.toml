@@ -61,6 +61,8 @@ w = "780"
 h = "518"
 
 [languages.en.params.contact]
+avatar = "images/work4.jpg"
+name = "Jane Doe"
 description = "I would like to hear from you. Please contact me via email or social media."
 x = "#"
 twitter = ""
@@ -119,6 +121,8 @@ w = "780"
 h = "518"
 
 [languages.ja.params.contact]
+avatar = "images/work4.jpg"
+name = "山田 花子"
 description = "ご連絡はメールまたはSNSからお願いします。"
 x = "#"
 twitter = ""
