@@ -158,10 +158,11 @@ svg {
 }
 
 .project-card__content {
-  background: rgb(255 255 255 / 90%);
+  background: #fff;
   bottom: 0;
   left: 0;
   margin: 1.5rem;
+  opacity: .9;
   padding: 1.5rem;
   position: absolute;
   right: 0;
@@ -207,7 +208,7 @@ svg {
 
 .subproject-card__image,
 .subproject-card__caption {
-  flex: 1 1 50%;
+  flex: 1 1 0;
   min-width: 0;
 }
 
@@ -220,11 +221,14 @@ svg {
   color: #4f4f4f;
   font-size: .875rem;
   line-height: 1.42857;
-  padding-left: 1rem;
+  margin-top: .5rem;
+  padding: 0 1.5rem 0 1rem;
 }
 
 .site-footer {
   align-items: center;
+  background: #fff;
+  color: #000;
   display: flex;
   flex-direction: column;
   font-size: .75rem;
