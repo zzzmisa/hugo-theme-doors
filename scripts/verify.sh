@@ -29,6 +29,16 @@ assert_contains() {
   fi
 }
 
+assert_not_contains() {
+  local path="$1"
+  local unexpected="$2"
+
+  if grep -Fq -- "$unexpected" "$path"; then
+    printf 'Unexpected text was found in %s: %s\n' "$path" "$unexpected" >&2
+    exit 1
+  fi
+}
+
 hugo \
   --source "$repo_root/exampleSite" \
   --themesDir "$repo_root/.." \
@@ -51,6 +61,7 @@ assert_contains "$english_page" 'aria-current="page">English</span>'
 assert_contains "$english_page" 'Name of the work 1'
 assert_contains "$english_page" 'The work 4'
 assert_contains "$english_page" 'googletagmanager.com/ns.html?id=GTM-xxxxxxxx'
+assert_contains "$english_page" '<img'
 
 assert_contains "$japanese_page" 'lang="ja-JP"'
 assert_contains "$japanese_page" '<title>Hugoテーマ Doors</title>'
@@ -60,5 +71,13 @@ assert_contains "$japanese_page" 'aria-label="言語"'
 assert_contains "$japanese_page" 'aria-current="page">日本語</span>'
 assert_contains "$japanese_page" '作品名1'
 assert_contains "$japanese_page" '作品4'
+
+for page in "$english_page" "$japanese_page"; do
+  assert_not_contains "$page" '<html ⚡'
+  assert_not_contains "$page" 'cdn.ampproject.org'
+  assert_not_contains "$page" 'amp-boilerplate'
+  assert_not_contains "$page" 'amp-custom'
+  assert_not_contains "$page" '<amp-img'
+done
 
 printf 'Theme verification passed.\n'
