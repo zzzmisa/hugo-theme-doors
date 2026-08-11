@@ -1,0 +1,11 @@
+<li class="subproject-list__item">
+  <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+    <figure class="subproject-card">
+      <img class="subproject-card__image" width="{{ .w }}" height="{{ .h }}" src="{{ .image | relURL }}" alt="{{ .title }}" loading="lazy" decoding="async">
+      <figcaption class="subproject-card__caption">
+        <h2 class="subproject-card__title">{{ .title }}</h2>
+        {{ .description }}
+      </figcaption>
+    </figure>
+  </a>
+</li>

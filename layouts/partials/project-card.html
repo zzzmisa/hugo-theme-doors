@@ -1,0 +1,11 @@
+<article class="project-card">
+  <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+    <img class="project-card__image" width="{{ .w }}" height="{{ .h }}" src="{{ .image | relURL }}" alt="{{ .title }}" decoding="async">
+    {{ if or .title .description }}
+    <header class="project-card__content">
+      <h2 class="project-card__title">{{ .title }}</h2>
+      <p class="project-card__description">{{ .description }}</p>
+    </header>
+    {{ end }}
+  </a>
+</article>

@@ -1,0 +1,6 @@
+<header class="site-header">
+  <h1 class="site-title">{{ .Site.Title }}</h1>
+  {{ if .IsTranslated }}
+    {{ partial "language-switcher.html" . }}
+  {{ end }}
+</header>

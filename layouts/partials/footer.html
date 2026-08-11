@@ -1,0 +1,15 @@
+<footer class="site-footer">
+  {{ with .Site.Params.contact }}
+    {{ with .avatar }}<img class="site-avatar" src="{{ . | relURL }}" width="96" height="96" alt="{{ $.Site.Params.contact.name }}" loading="lazy" decoding="async">{{ end }}
+    {{ with .name }}<h2 class="contact-name">{{ . }}</h2>{{ end }}
+    {{ with .description }}<p class="contact-description">{{ . | safeHTML }}</p>{{ end }}
+{{ `<!--
+  Icons are from Simple Icons v5.13.0 except email icon
+  (The email icon is from The Scenic).
+  https://github.com/simple-icons/simple-icons
+  CC0 1.0 Universal
+-->` | safeHTML }}
+    {{ partial "social-links.html" . }}
+  {{ end }}
+  <small>{{ .Site.Copyright }}</small>
+</footer>
