@@ -1,23 +1,32 @@
 # Page settings
 
-baseurl = "https://example.org/"
-locale = "en-US"
-title = "Hugo Theme Doors"
-copyright = "© Hugo Theme Doors"
+baseURL = "https://example.org/"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
 disableKinds = ["taxonomy", "term", "rss", "sitemap", "404"]
 theme = "hugo-theme-doors"
 
-# Site information
+# Settings shared by all languages
 [params]
 googleTagManager = "GTM-xxxxxxxx"
-description = ""
 ogimage = "images/work1.jpg"
 twitterSite = "@username"
 
-# Project section
-[params.projects]
+# English
+[languages.en]
+locale = "en-US"
+label = "English"
+title = "Hugo Theme Doors"
+copyright = "© Hugo Theme Doors"
+weight = 1
 
-[[params.projects.list]]
+[languages.en.params]
+description = "A collection of my works."
+languageSelector = "Language"
+
+[languages.en.params.projects]
+
+[[languages.en.params.projects.list]]
 title = "Name of the work 1"
 url = "#"
 description = "Describe your work summary"
@@ -25,10 +34,9 @@ image = "images/work1.jpg"
 w = "780"
 h = "518"
 
-# Subproject section
-[params.subprojects]
+[languages.en.params.subprojects]
 
-[[params.subprojects.list]]
+[[languages.en.params.subprojects.list]]
 title = "The work 2"
 url = "#"
 description = "Lorem ipsum dolor sit amet"
@@ -36,7 +44,7 @@ image = "images/work2.jpg"
 w = "780"
 h = "522"
 
-[[params.subprojects.list]]
+[[languages.en.params.subprojects.list]]
 title = "The work 3"
 url = "#"
 description = "Consectetur adipiscing elit"
@@ -44,7 +52,7 @@ image = "images/work3.jpg"
 w = "780"
 h = "518"
 
-[[params.subprojects.list]]
+[[languages.en.params.subprojects.list]]
 title = "The work 4"
 url = "#"
 description = "Sed do eiusmod tempor incididunt"
@@ -52,9 +60,66 @@ image = "images/work4.jpg"
 w = "780"
 h = "518"
 
-# Contact section
-[params.contact]
+[languages.en.params.contact]
 description = "I would like to hear from you. Please contact me via email or social media."
+x = "#"
+twitter = ""
+facebook = ""
+linkedin = "#"
+instagram = "#"
+github = ""
+email = "#"
+
+# Japanese
+[languages.ja]
+locale = "ja-JP"
+label = "日本語"
+title = "Hugoテーマ Doors"
+copyright = "© Hugoテーマ Doors"
+weight = 2
+
+[languages.ja.params]
+description = "作品へのリンク集です。"
+languageSelector = "言語"
+
+[languages.ja.params.projects]
+
+[[languages.ja.params.projects.list]]
+title = "作品名1"
+url = "#"
+description = "作品の概要"
+image = "images/work1.jpg"
+w = "780"
+h = "518"
+
+[languages.ja.params.subprojects]
+
+[[languages.ja.params.subprojects.list]]
+title = "作品2"
+url = "#"
+description = "作品の説明文"
+image = "images/work2.jpg"
+w = "780"
+h = "522"
+
+[[languages.ja.params.subprojects.list]]
+title = "作品3"
+url = "#"
+description = "作品の説明文"
+image = "images/work3.jpg"
+w = "780"
+h = "518"
+
+[[languages.ja.params.subprojects.list]]
+title = "作品4"
+url = "#"
+description = "作品の説明文"
+image = "images/work4.jpg"
+w = "780"
+h = "518"
+
+[languages.ja.params.contact]
+description = "ご連絡はメールまたはSNSからお願いします。"
 x = "#"
 twitter = ""
 facebook = ""
