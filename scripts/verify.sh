@@ -62,6 +62,8 @@ assert_contains "$english_page" 'Name of the work 1'
 assert_contains "$english_page" 'The work 4'
 assert_contains "$english_page" 'googletagmanager.com/ns.html?id=GTM-xxxxxxxx'
 assert_contains "$english_page" '<img'
+assert_contains "$english_page" 'href="/css/main.min.'
+assert_contains "$english_page" 'integrity="sha256-'
 
 assert_contains "$japanese_page" 'lang="ja-JP"'
 assert_contains "$japanese_page" '<title>Hugoテーマ Doors</title>'
@@ -78,6 +80,12 @@ for page in "$english_page" "$japanese_page"; do
   assert_not_contains "$page" 'amp-boilerplate'
   assert_not_contains "$page" 'amp-custom'
   assert_not_contains "$page" '<amp-img'
+  assert_not_contains "$page" 'ampstart-'
 done
+
+if ! find "$output_dir/css" -type f -name 'main.min.*.css' -print -quit | grep -q .; then
+  printf 'Fingerprint CSS asset was not generated.\n' >&2
+  exit 1
+fi
 
 printf 'Theme verification passed.\n'
