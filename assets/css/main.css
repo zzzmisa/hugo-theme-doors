@@ -144,7 +144,7 @@ svg {
 
 .featured-projects,
 .subprojects {
-  margin: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .project-card {
