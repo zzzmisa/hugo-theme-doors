@@ -181,7 +181,7 @@ svg {
   margin: .5rem 0;
 }
 
-.project-group + .project-group {
+.project-group {
   margin-top: 2.5rem;
 }
 
@@ -316,6 +316,10 @@ html[lang^="ja"] .contact-name {
 }
 
 @media (min-width: 40.06rem) {
+  .project-group + .project-group {
+    margin-top: 1.5rem;
+  }
+
   .subproject-list__item {
     border-bottom: 0;
     width: 33.33333%;
