@@ -57,7 +57,31 @@ Project and profile content is configured through site parameters:
 - `params.twitterSite`: optional X/Twitter account
 - `params.projects.list`: featured project cards
 - `params.subprojects.list`: secondary project cards
+- `params.subprojects.groups`: optional grouped secondary project cards. Each group accepts
+  `title`, `list`, and an optional `divider = true` to place the title over a horizontal rule.
+  When `groups` is omitted, the existing `subprojects.list` markup and design are unchanged.
 - `params.contact`: profile, contact text, and social links
+
+To group secondary projects with an optional labeled divider:
+
+```toml
+[params.subprojects]
+
+[[params.subprojects.groups]]
+title = "Apps"
+divider = true
+
+[[params.subprojects.groups.list]]
+title = "My app"
+url = "https://example.com/"
+description = "A short description."
+image = "images/my-app.png"
+w = "900"
+h = "600"
+```
+
+Continue adding `groups` and their nested `list` entries as needed. Keep using
+`params.subprojects.list` when no grouping or divider is required.
 
 For multilingual sites, define these parameters below each `languages.<language>.params` table, as shown in [`exampleSite/config.toml`](exampleSite/config.toml).
 

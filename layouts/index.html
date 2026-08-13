@@ -10,10 +10,27 @@
   </div>
 
   <div class="subprojects">
-    <ul class="subproject-list">
-      {{ range .Site.Params.subprojects.list }}
-        {{ partial "subproject-card.html" . }}
+    {{ with .Site.Params.subprojects.groups }}
+      {{ range . }}
+        <section class="project-group{{ if .divider }} project-group--divided{{ end }}"{{ with .title }} aria-labelledby="{{ . | urlize }}"{{ end }}>
+          {{ with .title }}
+            <header class="project-group__header">
+              <h2 class="project-group__title" id="{{ . | urlize }}">{{ . }}</h2>
+            </header>
+          {{ end }}
+          <ul class="subproject-list">
+            {{ range .list }}
+              {{ partial "subproject-card.html" . }}
+            {{ end }}
+          </ul>
+        </section>
       {{ end }}
-    </ul>
+    {{ else }}
+      <ul class="subproject-list">
+        {{ range .Site.Params.subprojects.list }}
+          {{ partial "subproject-card.html" . }}
+        {{ end }}
+      </ul>
+    {{ end }}
   </div>
 {{ end }}

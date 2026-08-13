@@ -65,6 +65,7 @@ assert_contains "$english_page" 'googletagmanager.com/ns.html?id=GTM-xxxxxxxx'
 assert_contains "$english_page" '<img'
 assert_contains "$english_page" 'href="/css/main.min.'
 assert_contains "$english_page" 'integrity="sha256-'
+assert_not_contains "$english_page" 'class="project-group'
 
 assert_contains "$japanese_page" 'lang="ja-JP"'
 assert_contains "$japanese_page" '<title>Hugoテーマ Doors</title>'
@@ -75,6 +76,7 @@ assert_contains "$japanese_page" 'aria-current="page">日本語</span>'
 assert_contains "$japanese_page" '作品名1'
 assert_contains "$japanese_page" '作品4'
 assert_contains "$japanese_page" '山田 花子'
+assert_not_contains "$japanese_page" 'class="project-group'
 
 for page in "$english_page" "$japanese_page"; do
   assert_not_contains "$page" '<html ⚡'
