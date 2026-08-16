@@ -12,7 +12,7 @@
   <div class="subprojects">
     {{ with .Site.Params.subprojects.groups }}
       {{ range . }}
-        <section class="project-group{{ if .divider }} project-group--divided{{ end }}"{{ with .title }} aria-labelledby="{{ . | urlize }}"{{ end }}>
+        <section class="project-group"{{ with .title }} aria-labelledby="{{ . | urlize }}"{{ end }}>
           {{ with .title }}
             <header class="project-group__header">
               <h2 class="project-group__title" id="{{ . | urlize }}">{{ . }}</h2>

@@ -182,11 +182,16 @@ svg {
 }
 
 .project-group {
+  border-top: 1px solid #4a4a4a;
   margin-top: 2.5rem;
 }
 
 .project-group__header {
-  margin: 0 .5rem .5rem;
+  background: #fff;
+  display: table;
+  margin: -.625rem auto .5rem;
+  padding: 0 .5rem;
+  position: relative;
 }
 
 .project-group__title {
@@ -196,18 +201,6 @@ svg {
   font-weight: 400;
   letter-spacing: .08em;
   line-height: 1.81818;
-}
-
-.project-group--divided {
-  border-top: 1px solid #4a4a4a;
-}
-
-.project-group--divided .project-group__header {
-  background: #fff;
-  display: table;
-  margin: -.625rem auto .5rem;
-  padding: 0 .5rem;
-  position: relative;
 }
 
 .subproject-list {
