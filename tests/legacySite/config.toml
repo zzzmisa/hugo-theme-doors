@@ -1,0 +1,8 @@
+baseURL = "https://legacy.example/"
+disableKinds = ["taxonomy", "term", "rss", "sitemap", "404"]
+theme = "hugo-theme-doors"
+title = "Legacy contact configuration"
+
+[params.contact]
+name = "Legacy User"
+github = "https://github.com/legacy-user"

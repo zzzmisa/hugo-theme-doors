@@ -60,7 +60,17 @@ Project and profile content is configured through site parameters:
 - `params.subprojects.groups`: optional grouped secondary project cards. Each group accepts
   `title`, `list`, and an optional `divider = true` to place the title over a horizontal rule.
   When `groups` is omitted, the existing `subprojects.list` markup and design are unchanged.
-- `params.contact`: profile, contact text, and social links
+- `params.contact`: profile, contact text, and ordered social links
+
+Social links are defined with `params.contact.links`. Built-in icon names are
+`x`, `twitter`, `facebook`, `instagram`, `linkedin`, `github`, `youtube`,
+`note`, and `email`.
+For other services, place an image below the site's `static` directory and set
+`icon` to its site-relative path. See [`exampleSite/config.toml`](exampleSite/config.toml)
+for built-in and custom icon examples.
+
+The legacy social fields below `params.contact` remain supported when
+`params.contact.links` is not defined.
 
 To group secondary projects with an optional labeled divider:
 
@@ -91,4 +101,4 @@ Bug reports and pull requests are welcome. By submitting a pull request, you agr
 
 ## Attribution notices
 
-Doors retains the visual design lineage and required notices from AMP Start's The Scenic template. The notices are included in [`layouts/_default/baseof.html`](layouts/_default/baseof.html) and [`layouts/partials/footer.html`](layouts/partials/footer.html), and therefore in generated pages.
+Doors retains the visual design lineage and required notices from AMP Start's The Scenic template. Third-party notices are kept next to the relevant implementation in [`layouts/_default/baseof.html`](layouts/_default/baseof.html), [`layouts/partials/social-icon.html`](layouts/partials/social-icon.html), and [`exampleSite/static/images/icons/newspaper.svg`](exampleSite/static/images/icons/newspaper.svg).

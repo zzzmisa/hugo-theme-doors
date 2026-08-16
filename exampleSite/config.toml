@@ -64,13 +64,41 @@ h = "518"
 avatar = "images/work4.jpg"
 name = "Jane Doe"
 description = "I would like to hear from you. Please contact me via email or social media."
-x = "#"
-twitter = ""
-facebook = ""
-linkedin = "#"
-instagram = "#"
-github = ""
-email = "#"
+
+[[languages.en.params.contact.links]]
+label = "X"
+url = "#"
+icon = "x"
+
+[[languages.en.params.contact.links]]
+label = "LinkedIn"
+url = "#"
+icon = "linkedin"
+
+[[languages.en.params.contact.links]]
+label = "Instagram"
+url = "#"
+icon = "instagram"
+
+[[languages.en.params.contact.links]]
+label = "YouTube"
+url = "#"
+icon = "youtube"
+
+[[languages.en.params.contact.links]]
+label = "note"
+url = "#"
+icon = "note"
+
+[[languages.en.params.contact.links]]
+label = "News"
+url = "#"
+icon = "images/icons/newspaper.svg"
+
+[[languages.en.params.contact.links]]
+label = "Email"
+url = "mailto:jane@example.com"
+icon = "email"
 
 # Japanese
 [languages.ja]
@@ -124,10 +152,38 @@ h = "518"
 avatar = "images/work4.jpg"
 name = "山田 花子"
 description = "ご連絡はメールまたはSNSからお願いします。"
-x = "#"
-twitter = ""
-facebook = ""
-linkedin = "#"
-instagram = "#"
-github = ""
-email = "#"
+
+[[languages.ja.params.contact.links]]
+label = "X"
+url = "#"
+icon = "x"
+
+[[languages.ja.params.contact.links]]
+label = "LinkedIn"
+url = "#"
+icon = "linkedin"
+
+[[languages.ja.params.contact.links]]
+label = "Instagram"
+url = "#"
+icon = "instagram"
+
+[[languages.ja.params.contact.links]]
+label = "YouTube"
+url = "#"
+icon = "youtube"
+
+[[languages.ja.params.contact.links]]
+label = "note"
+url = "#"
+icon = "note"
+
+[[languages.ja.params.contact.links]]
+label = "ニュース"
+url = "#"
+icon = "images/icons/newspaper.svg"
+
+[[languages.ja.params.contact.links]]
+label = "メール"
+url = "mailto:hanako@example.com"
+icon = "email"

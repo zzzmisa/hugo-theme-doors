@@ -307,6 +307,17 @@ svg {
   fill: #000;
 }
 
+.social-links svg.social-links__lucide-icon {
+  fill: none;
+  stroke: currentcolor;
+}
+
+.social-links__custom-icon {
+  height: 20px;
+  object-fit: contain;
+  width: 20px;
+}
+
 html[lang^="ja"] body,
 html[lang^="ja"] .site-description,
 html[lang^="ja"] .project-card__title,
