@@ -41,6 +41,22 @@ assert_not_contains() {
   fi
 }
 
+assert_occurs_before() {
+  local path="$1"
+  local first="$2"
+  local second="$3"
+  local first_match
+  local second_match
+
+  first_match="$(grep -nFm1 -- "$first" "$path")"
+  second_match="$(grep -nFm1 -- "$second" "$path")"
+
+  if (( ${first_match%%:*} >= ${second_match%%:*} )); then
+    printf 'Expected text to occur before another in %s: %s / %s\n' "$path" "$first" "$second" >&2
+    exit 1
+  fi
+}
+
 hugo \
   --source "$repo_root/exampleSite" \
   --themesDir "$repo_root/.." \
@@ -71,6 +87,9 @@ assert_contains "$english_page" '<section class="project-group" aria-labelledby=
 assert_contains "$english_page" '>Featured work</h2>'
 assert_contains "$english_page" 'The work 4'
 assert_contains "$english_page" 'Jane Doe'
+assert_contains "$english_page" '<section class="site-footer site-profile" aria-labelledby="profile-name">'
+assert_contains "$english_page" '<footer class="site-footer site-copyright">'
+assert_occurs_before "$english_page" '<section class="site-footer site-profile"' '<p class="site-description">'
 assert_contains "$english_page" 'aria-label="X"'
 assert_contains "$english_page" 'aria-label="YouTube"'
 assert_contains "$english_page" 'M23.498 6.186'
@@ -102,6 +121,9 @@ assert_contains "$japanese_page" '<meta name="twitter:site" content="@username">
 assert_contains "$japanese_page" '作品名1'
 assert_contains "$japanese_page" '作品4'
 assert_contains "$japanese_page" '山田 花子'
+assert_not_contains "$japanese_page" 'site-profile'
+assert_not_contains "$japanese_page" 'site-copyright'
+assert_occurs_before "$japanese_page" '<h2 class="project-card__title">作品名1' '<h2 class="contact-name">山田 花子'
 assert_contains "$japanese_page" 'aria-label="YouTube"'
 assert_contains "$japanese_page" 'aria-label="note"'
 assert_contains "$japanese_page" 'aria-label="ニュース"'

@@ -260,6 +260,18 @@ svg {
   padding: 5rem 1.5rem;
 }
 
+.site-profile {
+  padding: 2.5rem 1.5rem;
+}
+
+.site-profile .social-links {
+  margin-bottom: .5rem;
+}
+
+.site-copyright {
+  padding: 1.5rem;
+}
+
 .site-avatar {
   border-radius: 50%;
   height: 96px;

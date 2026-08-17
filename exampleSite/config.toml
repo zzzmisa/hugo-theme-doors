@@ -69,6 +69,7 @@ w = "780"
 h = "518"
 
 [languages.en.params.contact]
+position = "top"
 avatar = "images/work4.jpg"
 name = "Jane Doe"
 description = "I would like to hear from you. Please contact me via email or social media."

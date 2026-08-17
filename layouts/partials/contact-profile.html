@@ -1,0 +1,5 @@
+{{ with .Site.Params.contact }}
+  <section class="site-footer site-profile"{{ with .name }} aria-labelledby="profile-name"{{ end }}>
+    {{ partial "contact-profile-content.html" $ }}
+  </section>
+{{ end }}

@@ -58,6 +58,7 @@ Project and profile content is configured through site parameters:
 - `params.subprojects.list`: secondary project cards
 - `params.subprojects.groups`: grouped secondary project cards
 - `params.contact`: profile, contact text, and ordered social links
+- `params.contact.position`: set to `"top"` to place the profile directly below the title and language selector; omit it to keep the profile in the footer
 
 Site integrations and metadata are configured separately:
 

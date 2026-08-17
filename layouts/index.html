@@ -1,6 +1,10 @@
 {{ define "main" }}
   {{ partial "site-header.html" . }}
 
+  {{ if eq (default "footer" .Site.Params.contact.position) "top" }}
+    {{ partial "contact-profile.html" . }}
+  {{ end }}
+
   <p class="site-description">
     {{- $description := .Site.Params.description -}}
     {{- if reflect.IsSlice $description -}}

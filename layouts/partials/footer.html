@@ -1,9 +1,7 @@
-<footer class="site-footer">
-  {{ with .Site.Params.contact }}
-    {{ with .avatar }}<img class="site-avatar" src="{{ . | relURL }}" width="96" height="96" alt="{{ $.Site.Params.contact.name }}" loading="lazy" decoding="async">{{ end }}
-    {{ with .name }}<h2 class="contact-name">{{ . }}</h2>{{ end }}
-    {{ with .description }}<p class="contact-description">{{ . | safeHTML }}</p>{{ end }}
-    {{ partial "social-links.html" . }}
+{{ $contactAtTop := eq (default "footer" .Site.Params.contact.position) "top" }}
+<footer class="site-footer{{ if $contactAtTop }} site-copyright{{ end }}">
+  {{ if not $contactAtTop }}
+    {{ partial "contact-profile-content.html" . }}
   {{ end }}
   <small>{{ .Site.Copyright }}</small>
 </footer>
