@@ -3,6 +3,11 @@ disableKinds = ["taxonomy", "term", "rss", "sitemap", "404"]
 theme = "hugo-theme-doors"
 title = "Legacy contact configuration"
 
+[params]
+description = "Legacy site description"
+ogimage = "images/legacy.jpg"
+twitterSite = "@legacy"
+
 [params.contact]
 name = "Legacy User"
 github = "https://github.com/legacy-user"

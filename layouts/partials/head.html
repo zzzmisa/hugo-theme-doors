@@ -1,5 +1,9 @@
 {{- $ogLocale := replace (or .Site.Language.Locale .Site.Language.Lang) "-" "_" -}}
 {{- $styles := resources.Get "css/main.css" | minify | fingerprint "sha256" -}}
+{{- $metadata := .Site.Params.metadata | default dict -}}
+{{- $metaDescription := $metadata.description | default .Site.Params.description -}}
+{{- $ogImage := $metadata.ogImage | default .Site.Params.ogimage -}}
+{{- $twitterSite := $metadata.twitterSite | default .Site.Params.twitterSite -}}
 <meta charset="utf-8">
 <meta name="pinterest" content="nopin">
 <title>{{ .Site.Title }}</title>
@@ -9,24 +13,24 @@
 {{- end }}
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
-<link rel="apple-touch-icon" href="{{ .Site.Params.ogimage | relURL }}">
-<meta name="description" content="{{ .Site.Params.description }}">
+<link rel="apple-touch-icon" href="{{ $ogImage | relURL }}">
+<meta name="description" content="{{ $metaDescription }}">
 <meta property="og:title" content="{{ .Site.Title }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ .Site.Params.ogimage | absURL }}">
+<meta property="og:image" content="{{ $ogImage | absURL }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:description" content="{{ .Site.Params.description }}">
+<meta property="og:description" content="{{ $metaDescription }}">
 <meta property="og:locale" content="{{ $ogLocale }}">
 {{- range .Translations }}
 <meta property="og:locale:alternate" content="{{ replace .Language.Locale "-" "_" }}">
 {{- end }}
 <meta name="twitter:card" content="summary_large_image">
-{{ with .Site.Params.twitterSite }}<meta name="twitter:site" content="{{ . }}">{{ end }}
+{{ with $twitterSite }}<meta name="twitter:site" content="{{ . }}">{{ end }}
 <meta name="twitter:url" content="{{ .Permalink }}">
 <meta name="twitter:title" content="{{ .Site.Title }}">
-<meta name="twitter:description" content="{{ .Site.Params.description }}">
-<meta name="twitter:image" content="{{ .Site.Params.ogimage | absURL }}">
+<meta name="twitter:description" content="{{ $metaDescription }}">
+<meta name="twitter:image" content="{{ $ogImage | absURL }}">
 {{ partial "google-tag-manager-head.html" . }}
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&amp;family=Noto+Sans+JP:wght@400;700&amp;family=Work+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous">

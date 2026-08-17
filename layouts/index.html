@@ -1,7 +1,17 @@
 {{ define "main" }}
   {{ partial "site-header.html" . }}
 
-  <p class="site-description">{{ .Site.Params.description | safeHTML }}</p>
+  <p class="site-description">
+    {{- $description := .Site.Params.description -}}
+    {{- if reflect.IsSlice $description -}}
+      {{- range $index, $line := $description -}}
+        {{- if $index }}<br>{{ end -}}
+        {{- $line | safeHTML -}}
+      {{- end -}}
+    {{- else -}}
+      {{- $description | safeHTML -}}
+    {{- end -}}
+  </p>
 
   <div class="featured-projects">
     {{ range .Site.Params.projects.list }}

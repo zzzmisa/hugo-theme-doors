@@ -52,13 +52,18 @@ hugo server
 
 Project and profile content is configured through site parameters:
 
-- `params.googleTagManager`: optional Google Tag Manager container ID
-- `params.ogimage`: social sharing image and Apple touch icon
-- `params.twitterSite`: optional X/Twitter account
+- `params.description`: site description shown on the page; use a string for one line or an array of strings for multiple lines
 - `params.projects.list`: featured project cards
 - `params.subprojects.list`: secondary project cards
 - `params.subprojects.groups`: grouped secondary project cards
 - `params.contact`: profile, contact text, and ordered social links
+
+Site integrations and metadata are configured separately:
+
+- `params.googleTagManager`: optional Google Tag Manager container ID
+- `params.metadata.description`: plain-text site description used in HTML, Open Graph, and X/Twitter metadata
+- `params.metadata.ogImage`: social sharing image and Apple touch icon
+- `params.metadata.twitterSite`: optional X/Twitter account
 
 Secondary project groups are defined with `params.subprojects.groups`. Each group
 has a `title` and `list` and is displayed with a labeled divider. Keep using
@@ -75,6 +80,12 @@ The legacy social fields below `params.contact` remain supported when
 `params.contact.links` is not defined.
 
 For multilingual sites, define these parameters below each `languages.<language>.params` table, as shown in [`exampleSite/config.toml`](exampleSite/config.toml).
+
+Metadata shared by every language can be defined below `params.metadata`.
+Language-specific metadata can be defined below
+`languages.<language>.params.metadata`; Hugo merges it with the shared metadata.
+The legacy `params.ogimage`, `params.twitterSite`, and plain-text
+`params.description` metadata fields remain supported as fallbacks.
 
 ## Contributing
 

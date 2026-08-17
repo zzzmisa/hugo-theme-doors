@@ -9,7 +9,9 @@ theme = "hugo-theme-doors"
 # Settings shared by all languages
 [params]
 googleTagManager = "GTM-xxxxxxxx"
-ogimage = "images/work1.jpg"
+
+[params.metadata]
+ogImage = "images/work1.jpg"
 twitterSite = "@username"
 
 # English
@@ -23,6 +25,9 @@ weight = 1
 [languages.en.params]
 description = "A collection of my works."
 languageSelector = "Language"
+
+[languages.en.params.metadata]
+description = "A collection of my works."
 
 [languages.en.params.projects]
 
@@ -109,8 +114,11 @@ copyright = "© Hugoテーマ Doors"
 weight = 2
 
 [languages.ja.params]
-description = "作品へのリンク集です。"
+description = ["作品へのリンク集です。", "気になる作品を見つけてください。"]
 languageSelector = "言語"
+
+[languages.ja.params.metadata]
+description = "作品へのリンク集です。"
 
 [languages.ja.params.projects]
 
