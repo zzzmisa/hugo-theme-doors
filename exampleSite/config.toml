@@ -31,7 +31,10 @@ description = "A collection of my works."
 
 [languages.en.params.projects]
 
-[[languages.en.params.projects.list]]
+[[languages.en.params.projects.groups]]
+title = "Featured work"
+
+[[languages.en.params.projects.groups.list]]
 title = "Name of the work 1"
 url = "#"
 description = "Describe your work summary"

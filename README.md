@@ -54,6 +54,7 @@ Project and profile content is configured through site parameters:
 
 - `params.description`: site description shown on the page; use a string for one line or an array of strings for multiple lines
 - `params.projects.list`: featured project cards
+- `params.projects.groups`: grouped featured project cards
 - `params.subprojects.list`: secondary project cards
 - `params.subprojects.groups`: grouped secondary project cards
 - `params.contact`: profile, contact text, and ordered social links
@@ -68,6 +69,10 @@ Site integrations and metadata are configured separately:
 Secondary project groups are defined with `params.subprojects.groups`. Each group
 has a `title` and `list` and is displayed with a labeled divider. Keep using
 `params.subprojects.list` when grouping is not needed.
+
+Featured project groups use the same structure and divider design. Define them
+with `params.projects.groups`, or keep using `params.projects.list` when grouping
+is not needed.
 
 Social links are defined with `params.contact.links`. Built-in icon names are
 `x`, `twitter`, `facebook`, `instagram`, `linkedin`, `github`, `youtube`,

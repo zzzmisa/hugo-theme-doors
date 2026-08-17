@@ -14,8 +14,23 @@
   </p>
 
   <div class="featured-projects">
-    {{ range .Site.Params.projects.list }}
-      {{ partial "project-card.html" . }}
+    {{ with .Site.Params.projects.groups }}
+      {{ range . }}
+        <section class="project-group"{{ with .title }} aria-labelledby="{{ . | urlize }}"{{ end }}>
+          {{ with .title }}
+            <header class="project-group__header">
+              <h2 class="project-group__title" id="{{ . | urlize }}">{{ . }}</h2>
+            </header>
+          {{ end }}
+          {{ range .list }}
+            {{ partial "project-card.html" . }}
+          {{ end }}
+        </section>
+      {{ end }}
+    {{ else }}
+      {{ range .Site.Params.projects.list }}
+        {{ partial "project-card.html" . }}
+      {{ end }}
     {{ end }}
   </div>
 
