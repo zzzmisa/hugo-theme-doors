@@ -77,7 +77,7 @@ assert_contains "$english_page" '<link rel="canonical" href="https://example.org
 assert_contains "$english_page" '<link rel="alternate" hreflang="ja-JP" href="https://example.org/ja/">'
 assert_contains "$english_page" 'aria-label="Language"'
 assert_contains "$english_page" 'aria-current="page">English</span>'
-assert_contains "$english_page" '<p class="site-description">A collection of my works.</p>'
+assert_not_contains "$english_page" '<p class="site-description">'
 assert_contains "$english_page" '<meta name="description" content="A collection of my works.">'
 assert_contains "$english_page" '<meta property="og:image" content="https://example.org/images/work1.jpg">'
 assert_contains "$english_page" '<meta name="twitter:site" content="@username">'
@@ -89,7 +89,7 @@ assert_contains "$english_page" 'The work 4'
 assert_contains "$english_page" 'Jane Doe'
 assert_contains "$english_page" '<section class="site-footer site-profile" aria-labelledby="profile-name">'
 assert_contains "$english_page" '<footer class="site-footer site-copyright">'
-assert_occurs_before "$english_page" '<section class="site-footer site-profile"' '<p class="site-description">'
+assert_occurs_before "$english_page" '<section class="site-footer site-profile"' '<div class="featured-projects">'
 assert_contains "$english_page" 'aria-label="X"'
 assert_contains "$english_page" 'aria-label="YouTube"'
 assert_contains "$english_page" 'M23.498 6.186'
@@ -99,6 +99,11 @@ assert_contains "$english_page" 'aria-label="News"'
 assert_contains "$english_page" 'class="social-links__custom-icon"'
 assert_contains "$english_page" 'src="/images/icons/newspaper.svg"'
 assert_contains "$english_page" 'href="mailto:jane@example.com"'
+assert_contains "$english_page" '<ul class="footer-links">'
+assert_contains "$english_page" '<nav class="footer-nav">'
+assert_contains "$english_page" '<a href="/contact/">Contact</a>'
+assert_contains "$english_page" '<a href="/terms/">Terms of Use</a>'
+assert_contains "$english_page" '<a href="/privacy/">Privacy Policy</a>'
 assert_contains "$english_page" 'class="social-links__lucide-icon"'
 assert_contains "$english_page" 'm22 7-8.97 5.7'
 assert_contains "$english_page" 'googletagmanager.com/ns.html?id=GTM-xxxxxxxx'
@@ -121,13 +126,19 @@ assert_contains "$japanese_page" '<meta name="twitter:site" content="@username">
 assert_contains "$japanese_page" '作品名1'
 assert_contains "$japanese_page" '作品4'
 assert_contains "$japanese_page" '山田 花子'
-assert_not_contains "$japanese_page" 'site-profile'
-assert_not_contains "$japanese_page" 'site-copyright'
-assert_occurs_before "$japanese_page" '<h2 class="project-card__title">作品名1' '<h2 class="contact-name">山田 花子'
+assert_contains "$japanese_page" '<section class="site-footer site-profile site-profile--bottom" aria-labelledby="profile-name">'
+assert_contains "$japanese_page" '<footer class="site-footer site-copyright">'
+assert_occurs_before "$japanese_page" '<h2 class="project-card__title">作品名1' '<h2 class="contact-name" id="profile-name">山田 花子'
+assert_occurs_before "$japanese_page" '<section class="site-footer site-profile site-profile--bottom"' '<footer class="site-footer site-copyright">'
 assert_contains "$japanese_page" 'aria-label="YouTube"'
 assert_contains "$japanese_page" 'aria-label="note"'
 assert_contains "$japanese_page" 'aria-label="ニュース"'
 assert_contains "$japanese_page" 'href="mailto:hanako@example.com"'
+assert_contains "$japanese_page" '<ul class="footer-links">'
+assert_contains "$japanese_page" '<nav class="footer-nav">'
+assert_contains "$japanese_page" '<a href="/ja/contact/">お問い合わせ</a>'
+assert_contains "$japanese_page" '<a href="/ja/terms/">利用規約</a>'
+assert_contains "$japanese_page" '<a href="/ja/privacy/">プライバシーポリシー</a>'
 assert_not_contains "$japanese_page" 'class="project-group'
 
 for page in "$english_page" "$japanese_page"; do
@@ -139,10 +150,14 @@ for page in "$english_page" "$japanese_page"; do
   assert_not_contains "$page" 'ampstart-'
 done
 
-if ! find "$output_dir/css" -type f -name 'main.min.*.css' -print -quit | grep -q .; then
+css_asset="$(find "$output_dir/css" -type f -name 'main.min.*.css' -print -quit)"
+
+if [[ -z "$css_asset" ]]; then
   printf 'Fingerprint CSS asset was not generated.\n' >&2
   exit 1
 fi
+
+assert_contains "$css_asset" '--space-3xl:5rem'
 
 hugo \
   --source "$repo_root/tests/legacySite" \
@@ -163,5 +178,6 @@ assert_contains "$legacy_page" '<meta name="description" content="Legacy site de
 assert_contains "$legacy_page" '<meta property="og:image" content="https://legacy.example/images/legacy.jpg">'
 assert_contains "$legacy_page" '<meta name="twitter:site" content="@legacy">'
 assert_not_contains "$legacy_page" 'social-links__custom-icon'
+assert_not_contains "$legacy_page" 'class="footer-links"'
 
 printf 'Theme verification passed.\n'

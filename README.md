@@ -59,6 +59,7 @@ Project and profile content is configured through site parameters:
 - `params.subprojects.groups`: grouped secondary project cards
 - `params.contact`: profile, contact text, and ordered social links
 - `params.contact.position`: set to `"top"` to place the profile directly below the title and language selector; omit it to keep the profile in the footer
+- `params.footer.links`: ordered text links shown above the copyright notice, such as contact, terms, and privacy pages
 
 Site integrations and metadata are configured separately:
 
@@ -84,6 +85,16 @@ for built-in and custom icon examples.
 
 The legacy social fields below `params.contact` remain supported when
 `params.contact.links` is not defined.
+
+Footer links are defined with `params.footer.links`. Each link has a `label`
+and `url`, and opens in the current tab. Omit the list to keep the footer
+unchanged. See [`exampleSite/config.toml`](exampleSite/config.toml) for
+multilingual contact, terms, and privacy link examples.
+
+Layout spacing uses the CSS custom properties `--space-2xs` through
+`--space-3xl` in [`assets/css/main.css`](assets/css/main.css). The scale is
+based on 4, 8, 16, 24, 32, 40, 48, and 80 pixel steps so component spacing
+shares a consistent rhythm.
 
 For multilingual sites, define these parameters below each `languages.<language>.params` table, as shown in [`exampleSite/config.toml`](exampleSite/config.toml).
 

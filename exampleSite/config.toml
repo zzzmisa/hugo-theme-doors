@@ -23,7 +23,6 @@ copyright = "© Hugo Theme Doors"
 weight = 1
 
 [languages.en.params]
-description = "A collection of my works."
 languageSelector = "Language"
 
 [languages.en.params.metadata]
@@ -108,6 +107,20 @@ icon = "images/icons/newspaper.svg"
 label = "Email"
 url = "mailto:jane@example.com"
 icon = "email"
+
+[languages.en.params.footer]
+
+[[languages.en.params.footer.links]]
+label = "Contact"
+url = "/contact/"
+
+[[languages.en.params.footer.links]]
+label = "Terms of Use"
+url = "/terms/"
+
+[[languages.en.params.footer.links]]
+label = "Privacy Policy"
+url = "/privacy/"
 
 # Japanese
 [languages.ja]
@@ -199,3 +212,17 @@ icon = "images/icons/newspaper.svg"
 label = "メール"
 url = "mailto:hanako@example.com"
 icon = "email"
+
+[languages.ja.params.footer]
+
+[[languages.ja.params.footer.links]]
+label = "お問い合わせ"
+url = "/ja/contact/"
+
+[[languages.ja.params.footer.links]]
+label = "利用規約"
+url = "/ja/terms/"
+
+[[languages.ja.params.footer.links]]
+label = "プライバシーポリシー"
+url = "/ja/privacy/"

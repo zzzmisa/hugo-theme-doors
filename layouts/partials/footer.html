@@ -1,7 +1,16 @@
 {{ $contactAtTop := eq (default "footer" .Site.Params.contact.position) "top" }}
-<footer class="site-footer{{ if $contactAtTop }} site-copyright{{ end }}">
-  {{ if not $contactAtTop }}
-    {{ partial "contact-profile-content.html" . }}
+{{ if not $contactAtTop }}
+  {{ partial "contact-profile.html" . }}
+{{ end }}
+<footer class="site-footer site-copyright">
+  {{ with .Site.Params.footer.links }}
+    <nav class="footer-nav">
+      <ul class="footer-links">
+        {{ range . }}
+          <li><a href="{{ .url }}">{{ .label }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
   {{ end }}
   <small>{{ .Site.Copyright }}</small>
 </footer>

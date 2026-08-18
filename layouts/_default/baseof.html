@@ -26,6 +26,7 @@
   limitations under the License.
 -->` | safeHTML }}
 {{- $locale := or .Site.Language.Locale .Site.Language.Lang -}}
+{{- $contactAtTop := eq (default "footer" .Site.Params.contact.position) "top" -}}
 <!doctype html>
 <html lang="{{ $locale }}">
   <head>
@@ -33,7 +34,7 @@
   </head>
   <body>
     {{ partial "google-tag-manager-body.html" . }}
-    <main class="site-main" id="content">
+    <main class="site-main{{ if $contactAtTop }} site-main--contact-at-top{{ end }}" id="content">
       {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer.html" . }}

@@ -5,17 +5,18 @@
     {{ partial "contact-profile.html" . }}
   {{ end }}
 
-  <p class="site-description">
-    {{- $description := .Site.Params.description -}}
-    {{- if reflect.IsSlice $description -}}
-      {{- range $index, $line := $description -}}
-        {{- if $index }}<br>{{ end -}}
-        {{- $line | safeHTML -}}
+  {{ with .Site.Params.description }}
+    <p class="site-description">
+      {{- if reflect.IsSlice . -}}
+        {{- range $index, $line := . -}}
+          {{- if $index }}<br>{{ end -}}
+          {{- $line | safeHTML -}}
+        {{- end -}}
+      {{- else -}}
+        {{- . | safeHTML -}}
       {{- end -}}
-    {{- else -}}
-      {{- $description | safeHTML -}}
-    {{- end -}}
-  </p>
+    </p>
+  {{ end }}
 
   <div class="featured-projects">
     {{ with .Site.Params.projects.groups }}
