@@ -8,7 +8,6 @@
   --space-xl: 2.5rem;
   --space-2xl: 3rem;
   --space-3xl: 5rem;
-  --project-divider-label-offset: -.625rem;
 }
 
 * {
@@ -196,25 +195,23 @@ svg {
 }
 
 .project-group {
-  border-top: 1px solid #4a4a4a;
-  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
 }
 
 .project-group__header {
-  background: #fff;
-  display: table;
-  margin: var(--project-divider-label-offset) auto var(--space-xs);
-  padding: 0 var(--space-xs);
-  position: relative;
+  margin: 0 var(--space-md) var(--space-lg);
+  padding: 0 0 var(--space-lg);
 }
 
 .project-group__title {
-  color: #4a4a4a;
+  color: #000;
   font-family: "Work Sans", arial, sans-serif;
   font-size: .6875rem;
-  font-weight: 400;
-  letter-spacing: .08em;
+  font-weight: 700;
+  letter-spacing: .6px;
   line-height: 1.81818;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .subproject-list {
