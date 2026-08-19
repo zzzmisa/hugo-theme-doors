@@ -158,6 +158,12 @@ if [[ -z "$css_asset" ]]; then
 fi
 
 assert_contains "$css_asset" '--space-3xl:5rem'
+assert_contains "$css_asset" '--color-text-primary:#4a4a4a'
+assert_contains "$css_asset" '--color-text-emphasis:#000'
+assert_contains "$css_asset" '--color-text-secondary:#4f4f4f'
+assert_contains "$css_asset" 'color:var(--color-text-primary)'
+assert_contains "$css_asset" 'color:var(--color-text-emphasis)'
+assert_contains "$css_asset" 'color:var(--color-text-secondary)'
 
 hugo \
   --source "$repo_root/tests/legacySite" \

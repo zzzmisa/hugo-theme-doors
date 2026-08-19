@@ -96,6 +96,11 @@ Layout spacing uses the CSS custom properties `--space-2xs` through
 based on 4, 8, 16, 24, 32, 40, 48, and 80 pixel steps so component spacing
 shares a consistent rhythm.
 
+Text colors follow The Scenic's palette through semantic CSS custom properties:
+`--color-text-primary` for body copy, `--color-text-emphasis` for prominent
+labels and headings, and `--color-text-secondary` for captions and supporting
+navigation text.
+
 For multilingual sites, define these parameters below each `languages.<language>.params` table, as shown in [`exampleSite/config.toml`](exampleSite/config.toml).
 
 Metadata shared by every language can be defined below `params.metadata`.
