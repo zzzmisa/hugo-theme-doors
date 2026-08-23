@@ -65,16 +65,26 @@ hugo \
   --noBuildLock \
   --panicOnWarning
 
-english_page="$output_dir/index.html"
+root_page="$output_dir/index.html"
+english_page="$output_dir/en/index.html"
 japanese_page="$output_dir/ja/index.html"
 
+assert_file "$root_page"
 assert_file "$english_page"
 assert_file "$japanese_page"
 
+assert_contains "$root_page" 'data-language-detection'
+assert_contains "$root_page" 'var defaultUrl = "/en/";'
+assert_contains "$root_page" 'window.navigator.languages'
+assert_contains "$root_page" 'window.location.replace(preferredLanguage ? preferredLanguage.url : defaultUrl);'
+assert_contains "$root_page" '<noscript><meta http-equiv="refresh" content="0; url=/en/"></noscript>'
+
 assert_contains "$english_page" 'lang="en-US"'
 assert_contains "$english_page" '<title>Hugo Theme Doors</title>'
-assert_contains "$english_page" '<link rel="canonical" href="https://example.org/">'
+assert_contains "$english_page" '<link rel="canonical" href="https://example.org/en/">'
 assert_contains "$english_page" '<link rel="alternate" hreflang="ja-JP" href="https://example.org/ja/">'
+assert_contains "$english_page" 'data-language-preference="ja"'
+assert_not_contains "$english_page" 'data-language-detection'
 assert_contains "$english_page" 'aria-label="Language"'
 assert_contains "$english_page" 'aria-current="page">English</span>'
 assert_not_contains "$english_page" '<p class="site-description">'
@@ -116,7 +126,9 @@ assert_contains "$english_page" '<ul class="subproject-list">'
 assert_contains "$japanese_page" 'lang="ja-JP"'
 assert_contains "$japanese_page" '<title>Hugoテーマ Doors</title>'
 assert_contains "$japanese_page" '<link rel="canonical" href="https://example.org/ja/">'
-assert_contains "$japanese_page" '<link rel="alternate" hreflang="en-US" href="https://example.org/">'
+assert_contains "$japanese_page" '<link rel="alternate" hreflang="en-US" href="https://example.org/en/">'
+assert_contains "$japanese_page" 'data-language-preference="en"'
+assert_not_contains "$japanese_page" 'data-language-detection'
 assert_contains "$japanese_page" 'aria-label="言語"'
 assert_contains "$japanese_page" 'aria-current="page">日本語</span>'
 assert_contains "$japanese_page" '<p class="site-description">作品へのリンク集です。<br>気になる作品を見つけてください。</p>'
@@ -185,5 +197,6 @@ assert_contains "$legacy_page" '<meta property="og:image" content="https://legac
 assert_contains "$legacy_page" '<meta name="twitter:site" content="@legacy">'
 assert_not_contains "$legacy_page" 'social-links__custom-icon'
 assert_not_contains "$legacy_page" 'class="footer-links"'
+assert_not_contains "$legacy_page" 'hugo-theme-doors-language'
 
 printf 'Theme verification passed.\n'

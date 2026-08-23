@@ -11,6 +11,7 @@
 {{- range .AllTranslations }}
 <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
 {{- end }}
+{{ partial "language-preference.html" . }}
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <meta name="theme-color" content="#263238">
 <link rel="apple-touch-icon" href="{{ $ogImage | relURL }}">

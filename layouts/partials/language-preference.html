@@ -1,0 +1,24 @@
+{{- if and hugo.IsMultilingual .IsTranslated -}}
+<script>
+  (function () {
+    "use strict";
+
+    document.addEventListener("click", function (event) {
+      var target = event.target;
+      var link = target && target.closest
+        ? target.closest("[data-language-preference]")
+        : null;
+
+      if (!link) {
+        return;
+      }
+
+      try {
+        window.localStorage.setItem("hugo-theme-doors-language", link.getAttribute("data-language-preference"));
+      } catch (error) {
+        // Continue with the selected link when storage is unavailable.
+      }
+    });
+  })();
+</script>
+{{- end }}

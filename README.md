@@ -103,6 +103,13 @@ navigation text.
 
 For multilingual sites, define these parameters below each `languages.<language>.params` table, as shown in [`exampleSite/config.toml`](exampleSite/config.toml).
 
+Set `defaultContentLanguageInSubdir` to `true` to give every language a stable
+URL such as `/en/` and `/ja/`. Doors then uses the root URL as a language
+selection entry point, choosing from the visitor's browser language. A language
+selected from the language switcher is stored in `localStorage` and takes
+precedence on later root URL visits. Direct visits to language URLs are never
+redirected.
+
 Metadata shared by every language can be defined below `params.metadata`.
 Language-specific metadata can be defined below
 `languages.<language>.params.metadata`; Hugo merges it with the shared metadata.

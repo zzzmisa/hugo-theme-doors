@@ -1,0 +1,116 @@
+{{- if and hugo.IsMultilingual .IsHome .Site.IsDefault (ne .RelPermalink "/") -}}
+<!doctype html>
+<html lang="{{ or .Site.Language.Locale .Site.Language.Lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ .Site.Title }}</title>
+    <script data-language-detection>
+      (function () {
+        "use strict";
+
+        var storageKey = "hugo-theme-doors-language";
+        var defaultUrl = {{ .RelPermalink | jsonify | safeJS }};
+        var availableLanguages = [
+          {{- range $index, $page := .AllTranslations }}
+            {{- if $index }},{{ end }}
+            {
+              language: {{ $page.Language.Lang | jsonify | safeJS }},
+              locale: {{ (or $page.Language.Locale $page.Language.Lang) | jsonify | safeJS }},
+              url: {{ $page.RelPermalink | jsonify | safeJS }}
+            }
+          {{- end }}
+        ];
+
+        function normalize(language) {
+          return language.toLowerCase().replace(/_/g, "-");
+        }
+
+        function findLanguage(preferences) {
+          var normalizedPreferences = preferences.map(normalize);
+
+          for (var preferenceIndex = 0; preferenceIndex < normalizedPreferences.length; preferenceIndex += 1) {
+            var preference = normalizedPreferences[preferenceIndex];
+
+            for (var languageIndex = 0; languageIndex < availableLanguages.length; languageIndex += 1) {
+              var language = availableLanguages[languageIndex];
+
+              if (normalize(language.language) === preference || normalize(language.locale) === preference) {
+                return language;
+              }
+            }
+
+            var baseLanguage = preference.split("-")[0];
+
+            for (var fallbackIndex = 0; fallbackIndex < availableLanguages.length; fallbackIndex += 1) {
+              var fallbackLanguage = availableLanguages[fallbackIndex];
+
+              if (
+                normalize(fallbackLanguage.language).split("-")[0] === baseLanguage ||
+                normalize(fallbackLanguage.locale).split("-")[0] === baseLanguage
+              ) {
+                return fallbackLanguage;
+              }
+            }
+          }
+
+          return null;
+        }
+
+        function readPreference() {
+          try {
+            return window.localStorage.getItem(storageKey);
+          } catch (error) {
+            return null;
+          }
+        }
+
+        function savePreference(language) {
+          try {
+            window.localStorage.setItem(storageKey, language);
+          } catch (error) {
+            // Continue without persistence when storage is unavailable.
+          }
+        }
+
+        var preferredLanguage = findLanguage([readPreference() || ""]);
+
+        if (!preferredLanguage) {
+          var browserLanguages = window.navigator.languages && window.navigator.languages.length
+            ? window.navigator.languages
+            : [window.navigator.language || ""];
+
+          preferredLanguage = findLanguage(browserLanguages);
+        }
+
+        if (preferredLanguage) {
+          savePreference(preferredLanguage.language);
+        }
+
+        window.location.replace(preferredLanguage ? preferredLanguage.url : defaultUrl);
+      })();
+    </script>
+    <noscript><meta http-equiv="refresh" content="0; url={{ .RelPermalink }}"></noscript>
+  </head>
+  <body>
+    <p>
+      {{- range .AllTranslations }}
+        <a href="{{ .RelPermalink }}">{{ .Language.Label }}</a>
+      {{- end }}
+    </p>
+  </body>
+</html>
+{{- else -}}
+<!doctype html>
+<html lang="{{ or .Site.Language.Locale .Site.Language.Lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="0; url={{ .Permalink }}">
+    <link rel="canonical" href="{{ .Permalink }}">
+  </head>
+  <body>
+    <a href="{{ .Permalink }}">{{ .Permalink }}</a>
+  </body>
+</html>
+{{- end }}

@@ -2,7 +2,7 @@
 
 baseURL = "https://example.org/"
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false
+defaultContentLanguageInSubdir = true
 disableKinds = ["taxonomy", "term", "rss", "sitemap", "404"]
 theme = "hugo-theme-doors"
 

@@ -9,7 +9,7 @@
         {{- if eq $.Lang .Lang }}
           <span aria-current="page">{{ .Language.Label }}</span>
         {{- else }}
-          <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}">{{ .Language.Label }}</a>
+          <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Locale }}" lang="{{ .Language.Locale }}" data-language-preference="{{ .Language.Lang }}">{{ .Language.Label }}</a>
         {{- end }}
       {{- end }}
     </div>
